@@ -144,4 +144,5 @@ MESSAGE_TAGS = {
     messages.ERROR: 'error',
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']
+# Adicione isso ao final do seu arquivo settings.py
+DOWNLOADS_PATH = os.getenv('DOWNLOADS_PATH', 'C:/Downloads')  # Caminho padrão se a variável de ambiente não estiver definida

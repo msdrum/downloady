@@ -6,11 +6,10 @@ from pytube import YouTube
 import threading
 import os
 from django.contrib import messages
+from django.conf import settings
 
 def download_complete(request):
-    # Especifica o caminho para "C:/Downloads"
-    downloads_path = 'C:/Downloads'
-    
+    downloads_path = settings.DOWNLOADS_PATH
     return render(request, "final.html", {'downloads_path': downloads_path})
 
 def download_video_view(request):
@@ -26,8 +25,7 @@ def download_video_view(request):
                 
                 # Function to download the video
                 def download(): 
-                    # Especifica o caminho para "C:/Downloads"
-                    downloads_path = 'C:/Downloads'
+                    downloads_path = settings.DOWNLOADS_PATH
                     
                     # Cria o diretório se não existir
                     if not os.path.exists(downloads_path):
@@ -51,6 +49,7 @@ def download_video_view(request):
         form = YouTubeLinkForm()
 
     return render(request, 'download.html', {'form': form})
+
 
 
 
