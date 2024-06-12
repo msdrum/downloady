@@ -28,8 +28,8 @@ def download_video_view(request):
                     downloads_path = settings.DOWNLOADS_PATH
                     
                     # Cria o diretório se não existir
-                    if not os.path.exists(downloads_path):
-                        os.makedirs(downloads_path)
+                    # if not os.path.exists(downloads_path):
+                    #     os.makedirs(downloads_path)
                     
                     # Faz o download do vídeo
                     yd.download(output_path=downloads_path)
